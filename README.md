@@ -7,3 +7,9 @@
 ```
 npm run dev
 ```
+
+## Deploying on GitHub Pages
+
+```
+npm run deploy
+```
