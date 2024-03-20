@@ -6,9 +6,9 @@ import DotFilled from "./assets/icons/dot-filled.svg"
 import DotEmpty from "./assets/icons/dot-empty.svg"
 
 export default function PortfolioCarousel({ items }) {
-    let cards = items.map((t, index) => (
+    let cards = items.map((trackList, index) => (
         <div className="carousel-card" key={index}>
-            <PortfolioCard />
+            <PortfolioCard trackList={trackList} />
         </div>
     ))
 

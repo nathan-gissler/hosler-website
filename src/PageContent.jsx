@@ -1,10 +1,13 @@
 import PortfolioCarousel from "./PortfolioCarousel"
+import { trackList } from "./assets/audios"
 
 export default function PageContent() {
+    const portfolioItems = [trackList, trackList, trackList]
+    
     return (
         <div className="page-content">
             <h2 id="title-portfolio">PORTFOLIO</h2>
-            <PortfolioCarousel items={[0, 1, 2]} />
+            <PortfolioCarousel items={portfolioItems} />
             <h2 id="title-1">TITRE 1</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas. Faucibus et molestie ac feugiat sed. Suspendisse ultrices gravida dictum fusce. Morbi tincidunt augue interdum velit euismod in pellentesque massa placerat. Ut faucibus pulvinar elementum integer. Ornare suspendisse sed nisi lacus sed. Ultrices in iaculis nunc sed augue lacus viverra. Felis bibendum ut tristique et egestas. Vulputate odio ut enim blandit volutpat maecenas. Morbi tristique senectus et netus et. Magna sit amet purus gravida quis blandit turpis cursus in. Consectetur adipiscing elit pellentesque habitant morbi. Fermentum dui faucibus in ornare. Nisl pretium fusce id velit ut tortor pretium viverra. Augue interdum velit euismod in pellentesque massa placerat duis. Enim diam vulputate ut pharetra sit amet aliquam id diam.
 

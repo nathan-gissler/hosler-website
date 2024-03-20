@@ -1,7 +1,6 @@
 import AudioPlayer from "./AudioPlayer"
 
-export default function PortfolioCard() {
-    const trackList = ["src/assets/audios/Chase MG.wav", "src/assets/audios/The Goddess.wav", "src/assets/audios/This Journey Ahead.wav"]
+export default function PortfolioCard({ trackList }) {
 
     return (
         <div className="portfolio">

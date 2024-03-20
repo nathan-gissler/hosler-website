@@ -8,13 +8,13 @@ import NextIcon from "./assets/icons/next-icon.svg"
 export default function AudioPlayer({ trackList }) {
     const [isTrackPlaying, setIsTrackPlaying] = useState(false)
     const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
-    const [track, setTrack] = useState(new Audio(trackList[currentTrackIndex]))
+    const [track, setTrack] = useState(new Audio(trackList[currentTrackIndex].src))
     const [currentTime, setCurrentTime] = useState(0)
     const [intervalID, setIntervalID] = useState()
 
     let audioTracks = trackList.map((t, index) => (
         <div key={index} onClick={() => {handleClickOnTrack(index)}}>
-            <AudioTrack src={t} isPlaying={isTrackPlaying && currentTrackIndex == index} />
+            <AudioTrack audioTrack={t} isPlaying={isTrackPlaying && currentTrackIndex == index} />
         </div>
     ))
 
@@ -48,7 +48,7 @@ export default function AudioPlayer({ trackList }) {
             track.pause()
         }
         clearInterval(intervalID)
-        setTrack(new Audio(trackList[newIndex]))
+        setTrack(new Audio(trackList[newIndex].src))
         setCurrentTime(0)
     }
 
