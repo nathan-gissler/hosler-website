@@ -125,7 +125,8 @@ h2 {
 }
 
 .track-list {
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     margin-left: 6px;
     margin-top: 15px;
     margin-right: 6px;

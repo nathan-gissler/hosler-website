@@ -6,11 +6,12 @@ import PreviousIcon from "./assets/icons/previous-icon.svg"
 import NextIcon from "./assets/icons/next-icon.svg"
 
 export default function AudioPlayer({ trackList }) {
-    const [isTrackPlaying, setIsTrackPlaying] = useState(false)
-    const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
-    const [track, setTrack] = useState(new Audio(trackList[currentTrackIndex].src))
     const [currentTime, setCurrentTime] = useState(0)
     const [intervalID, setIntervalID] = useState()
+    const [isTrackPlaying, setIsTrackPlaying] = useState(false)
+    const [startPlayingNextTrack, setStartPlayingNextTrack] = useState(false)
+    const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
+    const [track, setTrack] = useState()
 
     let audioTracks = trackList.map((t, index) => (
         <div key={index} onClick={() => {handleClickOnTrack(index)}}>
@@ -18,21 +19,7 @@ export default function AudioPlayer({ trackList }) {
         </div>
     ))
 
-    useEffect(() => {
-        if (isTrackPlaying) {
-            setIntervalID(setInterval(function() {
-                setCurrentTime(track.currentTime)
-            }, 250))
-            track.oncanplay = function() {
-                track.play()
-            }
-        }
-    }, [track])
-
-    useEffect(() => {
-        changeTrack(currentTrackIndex)
-    }, [currentTrackIndex])
-
+    // Refreshing current time every 250ms only when track playing
     useEffect(() => {
         if (isTrackPlaying) {
             setIntervalID(setInterval(function() {
@@ -43,9 +30,39 @@ export default function AudioPlayer({ trackList }) {
         }
     }, [isTrackPlaying])
 
+    // Updating current track when track index has changed
+    useEffect(() => {
+        changeTrack(currentTrackIndex)
+    }, [currentTrackIndex])
+
+    useEffect(() => {
+        // Playing when current track is updated
+        if (track && startPlayingNextTrack) {
+            track.oncanplay = function() {
+                track.play()
+                setIsTrackPlaying(true)
+            }
+        }
+
+        // Handle the end of a track
+        if (track) {
+            const onEnded = () => {
+                setIsTrackPlaying(false)
+                setCurrentTime(0)
+            }
+            track.addEventListener('ended', onEnded)
+
+            return () => {
+                track.removeEventListener('ended', onEnded)
+            }
+        }
+    }, [track])
+
+    // Update current track
     function changeTrack(newIndex) {
-        if (isTrackPlaying) {
+        if (track) {
             track.pause()
+            setIsTrackPlaying(false)
         }
         clearInterval(intervalID)
         setTrack(new Audio(trackList[newIndex].src))
@@ -62,10 +79,12 @@ export default function AudioPlayer({ trackList }) {
     }
 
     function handlePrevButton() {
+        setStartPlayingNextTrack(isTrackPlaying)
         setCurrentTrackIndex((currentTrackIndex + trackList.length - 1) % trackList.length)
     }
 
     function handleNextButton() {
+        setStartPlayingNextTrack(isTrackPlaying)
         setCurrentTrackIndex((currentTrackIndex + 1) % trackList.length)
     }
 
@@ -73,10 +92,7 @@ export default function AudioPlayer({ trackList }) {
         if (index == currentTrackIndex) {
             handlePlayButton()
         } else {
-            if (isTrackPlaying) {
-            track.pause()
-            }
-            setIsTrackPlaying(true)
+            setStartPlayingNextTrack(true)
             setCurrentTrackIndex(index)
         }
     }
