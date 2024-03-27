@@ -1,6 +1,6 @@
 import HeaderNavbar from "./HeaderNavbar.jsx"
 import HeaderNavItem from "./HeaderNavItem.jsx"
-import LogoHosler from "./assets/logos/logo-hosler-white.png"
+import LogoHosler from "./assets/logos/logo-hosler-white.svg"
 import { useState, useEffect } from "react"
 
 export default function Header() {

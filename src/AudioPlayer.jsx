@@ -5,9 +5,10 @@ import PauseIcon from "./assets/icons/pause-icon.svg"
 import PreviousIcon from "./assets/icons/previous-icon.svg"
 import NextIcon from "./assets/icons/next-icon.svg"
 
-export default function AudioPlayer({ trackList }) {
+export default function AudioPlayer({ trackList, index }) {
     const [currentTime, setCurrentTime] = useState(0)
     const [intervalID, setIntervalID] = useState()
+    const [isTrackSelected, setIsTrackSelected] = useState(false)
     const [isTrackPlaying, setIsTrackPlaying] = useState(false)
     const [startPlayingNextTrack, setStartPlayingNextTrack] = useState(false)
     const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
@@ -15,7 +16,9 @@ export default function AudioPlayer({ trackList }) {
 
     let audioTracks = trackList.map((t, index) => (
         <div key={index} onClick={() => {handleClickOnTrack(index)}}>
-            <AudioTrack audioTrack={t} isPlaying={isTrackPlaying && currentTrackIndex == index} />
+            <AudioTrack audioTrack={t}
+            isSelected={isTrackSelected && currentTrackIndex == index}
+            isPlaying={isTrackPlaying && currentTrackIndex == index} />
         </div>
     ))
 
@@ -35,26 +38,40 @@ export default function AudioPlayer({ trackList }) {
         changeTrack(currentTrackIndex)
     }, [currentTrackIndex])
 
+    // Playing when current track is updated
     useEffect(() => {
-        // Playing when current track is updated
         if (track && startPlayingNextTrack) {
             track.oncanplay = function() {
                 track.play()
                 setIsTrackPlaying(true)
             }
         }
+    }, [track])
 
-        // Handle the end of a track
+    // Handle the end of a track
+    useEffect(() => {
         if (track) {
             const onEnded = () => {
                 setIsTrackPlaying(false)
                 setCurrentTime(0)
+                setCurrentTrackIndex((currentTrackIndex + 1) % trackList.length)
             }
             track.addEventListener('ended', onEnded)
 
             return () => {
                 track.removeEventListener('ended', onEnded)
             }
+        }
+    }, [track])
+
+    // Handle click on progress bar
+    useEffect(() => {
+        const progressBar = document.getElementById('audio-progress-bar-container-' + index)
+        const onClick = (event) => handleClickOnProgressBar(event)
+        progressBar.addEventListener('click', onClick)
+
+        return () => {
+            progressBar.removeEventListener('click', onClick)
         }
     }, [track])
 
@@ -73,6 +90,7 @@ export default function AudioPlayer({ trackList }) {
         if (isTrackPlaying) {
             track.pause()
         } else {
+            setIsTrackSelected(true)
             track.play()
         }
         setIsTrackPlaying(!isTrackPlaying)
@@ -81,11 +99,13 @@ export default function AudioPlayer({ trackList }) {
     function handlePrevButton() {
         setStartPlayingNextTrack(isTrackPlaying)
         setCurrentTrackIndex((currentTrackIndex + trackList.length - 1) % trackList.length)
+        setIsTrackSelected(true)
     }
 
     function handleNextButton() {
         setStartPlayingNextTrack(isTrackPlaying)
         setCurrentTrackIndex((currentTrackIndex + 1) % trackList.length)
+        setIsTrackSelected(true)
     }
 
     function handleClickOnTrack(index) {
@@ -94,6 +114,15 @@ export default function AudioPlayer({ trackList }) {
         } else {
             setStartPlayingNextTrack(true)
             setCurrentTrackIndex(index)
+            setIsTrackSelected(true)
+        }
+    }
+
+    function handleClickOnProgressBar(event) {
+        if (track) {
+            const element = document.getElementById('audio-progress-bar-container-' + index)
+            track.currentTime = event.offsetX * track.duration / element.clientWidth
+            setCurrentTime(track.currentTime)
         }
     }
 
@@ -103,8 +132,10 @@ export default function AudioPlayer({ trackList }) {
                 {audioTracks}
             </div>
             <div className="audio-control">
-                <div className="audio-progress-bar">
-                    <div className="audio-progress" style={currentTime == 0 ? {width: "0%"} : {width: `${currentTime * 100 / track.duration}%`}}></div>
+                <div className="audio-progress-bar-container" id={"audio-progress-bar-container-" + index}>
+                    <div className="audio-progress-bar">
+                        <div className="audio-progress" style={currentTime == 0 ? {width: "0%"} : {width: `${currentTime * 100 / track.duration}%`}}></div>
+                    </div>
                 </div>
                 <div className="audio-control-buttons">
                     <div className="audio-control-button previous-button highlight-on-hover" onClick={handlePrevButton}>
