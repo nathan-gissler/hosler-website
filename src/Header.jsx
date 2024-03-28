@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react"
 import HeaderNavbar from "./HeaderNavbar.jsx"
 import HeaderNavItem from "./HeaderNavItem.jsx"
 import LogoHosler from "./assets/logos/logo-hosler-white.svg"
-import { useState, useEffect } from "react"
+import FlagFr from "./assets/icons/flag-fr.svg"
 
 export default function Header() {
     const [isReduced, setIsReduced] = useState(false)
@@ -24,14 +25,15 @@ export default function Header() {
 
     return (
         <div id="header" className={isReduced ? "reduced" : ""}>
-            <img className="logo-hosler" src={LogoHosler} alt="" />
+            <img className="header-logo-hosler" src={LogoHosler} alt="" />
             <HeaderNavbar>
-                <HeaderNavItem title="PORTFOLIO" element="title-portfolio" nextElement="title-1" />
-                <HeaderNavItem title="TITRE 1" element="title-1" nextElement="title-2" />
-                <HeaderNavItem title="TITRE 2" element="title-2" nextElement="title-3" />
-                <HeaderNavItem title="TITRE 3" element="title-3" nextElement="title-4" />
-                <HeaderNavItem title="TITRE 4" element="title-4" />
+                <HeaderNavItem title="HOME" element="home-banner" nextElement="our-commitments-section" />
+                <HeaderNavItem title="OUR COMMITMENTS" element="our-commitments-section" nextElement="portfolio-section" />
+                <HeaderNavItem title="PORTFOLIO" element="portfolio-section" nextElement="about-us-section" />
+                <HeaderNavItem title="ABOUT US" element="about-us-section" nextElement="contact-section" />
+                <HeaderNavItem title="CONTACT" element="contact-section" />
             </HeaderNavbar>
+            <img className="language-icon" src={FlagFr} alt="" />
         </div>
     )
 }

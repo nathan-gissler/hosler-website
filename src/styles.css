@@ -3,6 +3,7 @@
     color: #8C8C8C;
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.2em;
+    font-weight: 300;
     scroll-behavior: smooth;
 }
 
@@ -19,32 +20,34 @@ body {
     filter: brightness(1.4);
 }
 
+/* Header */
+
 #header {
     background-color: #0F0F0F;
     border-bottom: solid 1px #1F1F1F;
-    display: flex;
-    position: fixed;
-    top: 0px;
     width: 100%;
     height: 150px;
     transition: height 300ms ease;
+    position: fixed;
+    top: 0px;
     z-index: 1000;
+    display: flex;
 }
 
 #header.reduced {
     height: 60px;
 }
 
-.logo-hosler {
+.header-logo-hosler {
     margin-left: 80px;
     margin-right: 80px;
 }
 
 .header-navbar {
+    flex: auto;
+    font-size: 14px;
     display: flex;
     align-items: end;
-    font-weight: 300;
-    font-size: 14px;
 }
 
 .header-navbar-item {
@@ -63,6 +66,17 @@ body {
     border-bottom: solid 1px #8C8C8C;
 }
 
+.language-icon {
+    width: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-self: start;
+}
+
+/* Page content */
+
 .page-content {
     margin-top: 150px;
 }
@@ -71,182 +85,95 @@ h2 {
     margin-left: 80px;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-weight: 300;
+    font-weight: 100;
     font-size: 36px;
 }
 
-/* Portfolio */
+/* Home banner */
 
-.portfolio {
+.home-banner {
     background-image: url('./assets/images/fond-guitare-piano.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 44vw; /* dépend du format de l'image */
+    height: 44vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-banner-content {
+    color: #AAAAAA;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
-.portfolio-horiz-align {
-    flex: 1 0;
-    display: flex;
+.home-banner-content > div {
+    margin: 20px;
+    width: fit-content;
 }
 
-.portfolio-dots {
-    flex: 0 0 auto;
-    display: flex;
-    margin: auto;
+.home-banner-title {
+    font-size: 48px;
+    font-weight: 100;
 }
 
-.portfolio-dots > img {
-    width: 5px;
-    margin: 5px;
+.home-banner-subtitle {
+    font-size: 18px;
 }
 
-.portfolio-arrow-left-right {
-    margin: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.half-portfolio {
-    width: 50%;
-    display: flex;
-}
-
-.audio-player {
+.home-banner-button {
     background-color: #000000;
-    border-radius: 10px;
-    width: 25vw;
-    height: 25vw;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 300ms;
 }
 
-.track-list {
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    flex: 1 0;
+.home-banner-button:hover {
+    background-color: #782c17;
 }
 
-.track-list::-webkit-scrollbar {
-    width: 3px;
-    background-color: #00000000;
+/* Commitments */
+
+.our-commitments {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.track-list::-webkit-scrollbar-thumb {
-	border-radius: 5px;
-    background-color: #1F1F1F;
-}
-
-.audio-track {
+.commitment {
     display: flex;
     align-items: center;
-    height: 40px;
-    letter-spacing: 0.1em;
-    font-weight: 300;
+}
+
+.commitment-text {
+    margin: 50px;
+    height: fit-content;
+}
+
+.commitment-title {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.commitment-description {
+    margin: 10px;
     font-size: 14px;
-    border-radius: 4px;
 }
 
-.track-play-button {
-    height: 8px;
-    margin: 15px;
-    flex: 0 0 auto;
-}
-
-.track-name {
-    flex: 1 0 auto;
-}
-
-.track-duration {
-    width: 55px;
-    margin: 5px;
-    text-align: center;
-    flex: 0 0 auto;
-    letter-spacing: 0em;
-    font-size: 10px;
-}
-
-.audio-control {
-    /* border-top: solid 1px #1F1F1F; */
+.commitment-image {
+    background-image: url('./assets/images/fond-guitare-piano.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
-    height: 60px;
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.audio-progress-bar-container {
-    width: 90%;
-    height: 2px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    align-self: center;
-    cursor: pointer;
-}
-
-.audio-progress-bar {
-    width: 100%;
-    height: 100%;
-    border-radius: 1px;
-    background-color: #1F1F1F;
-}
-
-.audio-progress {
-    height: 100%;
-    border-radius: 1px;
-    background-color: #8C8C8C;
-    transition: width 200ms;
-}
-
-.audio-control-buttons {
-    flex: 1 0;
-    padding-bottom: 5px;
-    display: flex;
-}
-
-.audio-control-button {
-    margin: auto;
-    border-radius: 50%;
-    border: solid 1px #1F1F1F;
-    display: flex;
-}
-
-.previous-button {
-    height: 10px;
-    width: 10px;
-    padding: 8px;
-    margin-right: 12px;
-}
-
-.next-button {
-    height: 10px;
-    width: 10px;
-    padding: 8px;
-    margin-left: 12px;
-}
-
-.previous-next-button-logo {
-    margin: auto;
-    height: 8px;
-}
-
-.play-button {
-    height: 15px;
-    width: 15px;
-    padding: 10px;
-    margin-left: 12px;
-    margin-right: 12px;
-}
-
-.play-button-logo {
-    margin: auto;
+    height: 500px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 /* Portfolio carousel */
@@ -296,4 +223,216 @@ h2 {
 
 .carousel-card {
     width: 100%;
+}
+
+/* Portfolio */
+
+.portfolio {
+    background-image: url('./assets/images/fond-guitare-piano.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 44vw;
+    display: flex;
+}
+
+.half-portfolio {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.porfolio-card-title {
+    width: fit-content;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 20px;
+    font-size: 36px;
+    font-weight: 100;
+    background-color: #612312;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.5);
+    z-index: 20;
+}
+
+.portfolio-card-description {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-right: 230px;
+    padding: 30px;
+    transform: translate(25px, -80px);
+    background-color: #0f0f0fa0;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.5);
+}
+
+/* Audio player */
+
+.audio-player {
+    background-color: #0f0f0fa0;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.5);
+    width: 25vw;
+    height: 25vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.track-list {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    flex: 1 0;
+}
+
+.track-list::-webkit-scrollbar {
+    width: 3px;
+    background-color: #00000000;
+}
+
+.track-list::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+    background-color: #1F1F1F;
+}
+
+.audio-track {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.audio-track.is-selected {
+    background-color: #61231240;
+}
+
+.track-play-button {
+    height: 8px;
+    margin: 15px;
+    flex: 0 0 auto;
+}
+
+.track-name {
+    flex: 1 0 auto;
+}
+
+.track-duration {
+    width: 55px;
+    margin: 5px;
+    text-align: center;
+    flex: 0 0 auto;
+    letter-spacing: 0em;
+    font-size: 10px;
+}
+
+.audio-control {
+    width: 100%;
+    height: 60px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.audio-progress-bar-container {
+    width: 90%;
+    height: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.audio-progress-bar {
+    width: 100%;
+    height: 100%;
+    border-radius: 1px;
+    background-color: #8C8C8C;
+}
+
+.audio-progress {
+    height: 100%;
+    border-radius: 1px;
+    background-color: #782c17;
+    transition: width 200ms;
+}
+
+.audio-control-buttons {
+    flex: 1 0;
+    padding-bottom: 5px;
+    display: flex;
+}
+
+.audio-control-button {
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+}
+
+.previous-button {
+    height: 10px;
+    width: 10px;
+    padding: 8px;
+    margin-right: 12px;
+}
+
+.next-button {
+    height: 10px;
+    width: 10px;
+    padding: 8px;
+    margin-left: 12px;
+}
+
+.previous-next-button-logo {
+    margin: auto;
+    height: 8px;
+}
+
+.play-button {
+    height: 15px;
+    width: 15px;
+    padding: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.play-button-logo {
+    margin: auto;
+}
+
+/* About us */
+
+/* Contact */
+
+/* Footer */
+
+#footer {
+    background-color: #0F0F0F;
+    border-top: solid 1px #1F1F1F;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-logo-hosler {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.footer-infos{
+    margin-left: 80px;
+    margin-right: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }

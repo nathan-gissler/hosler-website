@@ -14,7 +14,7 @@ export default function AudioTrack({ audioTrack, isSelected, isPlaying }) {
     }, [])
 
     return (
-        <div className="audio-track highlight-on-hover" style={isSelected ? {backgroundColor: "#1F1F1F"} : {}}>
+        <div className={isSelected ? "audio-track highlight-on-hover is-selected" : "audio-track highlight-on-hover"}>
             <img className="track-play-button" src={isPlaying ? PauseIcon : PlayIcon} alt="" />
             <div className="track-name">{ audioTrack.title }</div>
             <div className="track-duration">{ secondsToMinutesSeconds(duration) }</div>

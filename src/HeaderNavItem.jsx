@@ -1,22 +1,9 @@
 import { useState, useEffect } from "react"
+import { getElementScrollPosition, scrollToElement } from "./utils"
 
 export default function HeaderNavItem(props) {
 
     const [className, setClassName] = useState('header-navbar-item highlight-on-hover')
-
-    function getElementScrollPosition(elementId) {
-        var element = document.getElementById(elementId)
-        var top = element.getBoundingClientRect().top + scrollY
-        var marginTop = parseFloat(getComputedStyle(element).marginTop)
-        var elementY = top - marginTop
-        var header = document.getElementById("header")
-        var headerBottom = header.getBoundingClientRect().bottom
-        return elementY - headerBottom
-    }
-
-    function scrollToElement() {
-        scrollTo(0, getElementScrollPosition(props.element))
-    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,7 +21,7 @@ export default function HeaderNavItem(props) {
 
     return(
         <div className={className}
-        onClick={() => scrollToElement()}>
+        onClick={() => scrollToElement(props.element)}>
             {props.title}
             </div>
     )
