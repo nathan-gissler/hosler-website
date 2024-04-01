@@ -1,6 +1,7 @@
 import { scrollToElement } from "./utils"
 import PortfolioCarousel from "./PortfolioCarousel"
 import { trackList } from "./assets/audios"
+import ContactForm from "./ContactForm"
 
 export default function PageContent() {
     const portfolioItems = [trackList, trackList, trackList]
@@ -42,6 +43,7 @@ export default function PageContent() {
             </div>
             <h2 id="about-us-section">ABOUT US</h2>
             <h2 id="contact-section">CONTACT</h2>
+            <ContactForm/>
         </div>
     )
 }
