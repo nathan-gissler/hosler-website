@@ -9,7 +9,9 @@ export function getElementScrollPosition(elementId) {
 }
 
 export function scrollToElement(element) {
-    scrollTo(0, getElementScrollPosition(element))
+    const header = document.getElementById("header")
+    const headerHeight = header.getBoundingClientRect().bottom
+    scrollTo(0, getElementScrollPosition(element) + headerHeight - 60)
 }
 
 export function secondsToMinutesSeconds(seconds) {

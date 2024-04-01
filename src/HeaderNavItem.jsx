@@ -7,7 +7,7 @@ export default function HeaderNavItem(props) {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (scrollY >= getElementScrollPosition(props.element) && (!props.nextElement || scrollY < getElementScrollPosition(props.nextElement))) {
+            if (scrollY >= getElementScrollPosition(props.element) - 1 && (!props.nextElement || scrollY < getElementScrollPosition(props.nextElement) - 1)) {
                 setClassName('header-navbar-item highlight-on-hover is-selected')
             } else {
                 setClassName('header-navbar-item highlight-on-hover')
