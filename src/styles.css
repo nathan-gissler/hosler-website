@@ -72,6 +72,7 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     align-self: start;
+    cursor: pointer;
 }
 
 /* Page content */
@@ -217,7 +218,6 @@ h2 {
 .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 300%;
 }
 
 .carousel-card {

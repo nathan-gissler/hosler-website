@@ -1,12 +1,12 @@
-export default function ContactForm() {
+export default function ContactForm({ content }) {
     return (
         <div className="contact-form">
-            <input type="text" id="contact-form-name" placeholder="Nom" className="input small" />
-            <input type="text" id="contact-form-email" placeholder="Email *" className="input small" />
-            <input type="text" id="contact-form-project-type" placeholder="Type de projet" className="input small" />
-            <input type="text" id="contact-form-deadline" placeholder="Délai" className="input small" />
-            <textarea type="text" id="contact-form-message" placeholder="Message *" className="input large" />
-            <div className="contact-form-send-button">Envoyer</div>
+            <input type="text" id="contact-form-name" placeholder={content.nameInput} className="input small" />
+            <input type="text" id="contact-form-email" placeholder={content.emailInput} className="input small" />
+            <input type="text" id="contact-form-project-type" placeholder={content.projectTypeInput} className="input small" />
+            <input type="text" id="contact-form-deadline" placeholder={content.deadlineInput} className="input small" />
+            <textarea type="text" id="contact-form-message" placeholder={content.messageInput} className="input large" />
+            <div className="contact-form-send-button">{content.sendButton}</div>
         </div>
     )
 }

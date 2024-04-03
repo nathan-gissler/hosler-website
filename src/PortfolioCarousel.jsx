@@ -5,10 +5,10 @@ import ArrowRight from "./assets/icons/arrow-right.svg"
 import DotFilled from "./assets/icons/dot-filled.svg"
 import DotEmpty from "./assets/icons/dot-empty.svg"
 
-export default function PortfolioCarousel({ items }) {
+export default function PortfolioCarousel({ items, content }) {
     let cards = items.map((trackList, index) => (
         <div className="carousel-card" key={index}>
-            <PortfolioCard trackList={trackList} index={index} />
+            <PortfolioCard trackList={trackList} index={index} content={content[index]} />
         </div>
     ))
 
@@ -27,6 +27,7 @@ export default function PortfolioCarousel({ items }) {
     ))
 
     const carouselStyle = {
+        width: `${items.length * 100}%`,
         transform: `translateX(-${currentIndex / items.length * 100}%)`,
     }
 

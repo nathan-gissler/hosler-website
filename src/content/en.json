@@ -1,0 +1,60 @@
+{
+    "header": {
+        "navItemHome": "HOME",
+        "navItemCommitments": "OUR COMMITMENTS",
+        "navItemPortfolio": "PORTFOLIO",
+        "navItemAboutUs": "ABOUT US",
+        "navItemContact": "CONTACT"
+    },
+    "pageContent": {
+        "homeBannerTitle": "CRÉATION MUSICALE D'EXCEPTION",
+        "homeBannerSubtitle": "HOSLER vous accompagne dans votre aventure musicale avec les plus hauts standards",
+        "homeBannerButton": "Listen",
+        "commitments": [
+            {
+                "title": "Imposez votre vision, exigez la meilleure qualité",
+                "description": "Nous nous adaptons aux besoins et exigences de nos clients, en termes de qualité et de délai"
+            },
+            {
+                "title": "Nous proposons un service complet",
+                "description": "Notre domaine d'expertise s'étend de la composition au mastering, en passant par l'arrangement et le mixage"
+            },
+            {
+                "title": "La polyvalence est notre maître-mot",
+                "description": "Nous avons à coeur de travailler dans tous les styles musicaux, à tous les niveaux, avec la même rigueur"
+            }
+        ],
+        "portfolioCarousel": [
+            {
+                "musicStyleName": "CINÉMATIQUE",
+                "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
+            },
+            {
+                "musicStyleName": "URBAIN",
+                "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
+            },
+            {
+                "musicStyleName": "POP ROCK",
+                "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
+            },
+            {
+                "musicStyleName": "TRADITIONNEL",
+                "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
+            }
+        ],
+        "aboutUsTitle": "ABOUT US",
+        "contactTitle": "CONTACT",
+        "contactForm": {
+            "nameInput": "Name",
+            "emailInput": "Email *",
+            "projectTypeInput": "Project type",
+            "deadlineInput": "Deadline",
+            "messageInput": "Message *",
+            "sendButton": "Send"
+        }
+    },
+    "footer": {
+        "email": "email@gmail.com",
+        "phoneNumber": "+33666666666"
+    }
+}
