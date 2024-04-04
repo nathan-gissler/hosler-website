@@ -9,9 +9,20 @@ export function getElementScrollPosition(elementId) {
 }
 
 export function scrollToElement(element) {
+    // Getting current height
     const header = document.getElementById("header")
     const headerHeight = header.getBoundingClientRect().bottom
-    scrollTo(0, getElementScrollPosition(element) + headerHeight - 60)
+
+    // Getting values from CSS
+    const headerFullHeight = parseInt(getComputedStyle(document.body).getPropertyValue("--header-full-height").slice(0, -2), 10)
+    const headerReducedHeight = parseInt(getComputedStyle(document.body).getPropertyValue("--header-reduced-height").slice(0, -2), 10)
+
+    const scrollPosition = getElementScrollPosition(element)
+    if (scrollPosition <= headerFullHeight) {
+        scrollTo(0, scrollPosition + headerHeight - headerFullHeight)
+    } else {
+        scrollTo(0, scrollPosition + headerHeight - headerReducedHeight)
+    }
 }
 
 export function secondsToMinutesSeconds(seconds) {

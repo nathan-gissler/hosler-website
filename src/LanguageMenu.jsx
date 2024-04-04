@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react"
 import { LangContext } from "./LangContextProvider.jsx"
 import FlagFr from "./assets/icons/flag-fr.svg"
-import FlagEn from "./assets/icons/flag-fr.svg"
+import FlagEn from "./assets/icons/flag-en.svg"
 
 export default function LanguageMenu() {
     const { lang, updateLang } = useContext(LangContext)
@@ -9,9 +9,9 @@ export default function LanguageMenu() {
 
     useEffect(() => {
         if (lang == "fr") {
-            setFlag(FlagFr)
-        } else {
             setFlag(FlagEn)
+        } else {
+            setFlag(FlagFr)
         }
     }, [lang])
 
@@ -24,6 +24,6 @@ export default function LanguageMenu() {
     }
 
     return (
-        <img className="language-icon" src={flag} alt="" onClick={changeLang} />
+        <img className="language-icon enlarge-on-hover" src={flag} alt="" onClick={changeLang} />
     )
 }
