@@ -7,9 +7,11 @@
         "navItemContact": "CONTACT"
     },
     "pageContent": {
-        "homeBannerTitle": "CRÉATION MUSICALE D'EXCEPTION",
-        "homeBannerSubtitle": "HOSLER vous accompagne dans votre aventure musicale avec les plus hauts standards",
-        "homeBannerButton": "Écouter",
+        "homeBanner": {
+            "homeBannerTitle": "CRÉATION MUSICALE D'EXCEPTION",
+            "homeBannerSubtitle": "HOSLER vous accompagne dans votre aventure musicale avec les plus hauts standards",
+            "homeBannerButton": "Écouter"
+        },
         "commitments": [
             {
                 "title": "Imposez votre vision, exigez la meilleure qualité",
