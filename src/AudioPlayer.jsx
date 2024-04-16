@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
+import { audios } from "./assets/audios"
 import AudioTrack from "./AudioTrack"
 import PlayIcon from "./assets/icons/play-icon.svg"
 import PauseIcon from "./assets/icons/pause-icon.svg"
 import PreviousIcon from "./assets/icons/previous-icon.svg"
 import NextIcon from "./assets/icons/next-icon.svg"
 
-export default function AudioPlayer({ trackList, index }) {
+export default function AudioPlayer({ musicStyleId, index }) {
+    const trackList = audios[musicStyleId]
     const [currentTime, setCurrentTime] = useState(0)
     const [intervalID, setIntervalID] = useState()
     const [isTrackSelected, setIsTrackSelected] = useState(false)

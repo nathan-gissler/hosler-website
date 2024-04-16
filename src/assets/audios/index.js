@@ -2,8 +2,8 @@ import ChaseMG from "./chase-mg.wav"
 import TheGoddess from "./the-goddess.wav"
 import ThisJourneyAhead from "./this-journey-ahead.wav"
 
-export const audios = [
-    [
+export const audios = {
+    "cinematic": [
         {
             src: ChaseMG,
             title: "Chase MG",
@@ -17,7 +17,7 @@ export const audios = [
             title: "This Journey Ahead",
         },
     ],
-    [
+    "urban": [
         {
             src: ChaseMG,
             title: "Chase MG",
@@ -67,7 +67,7 @@ export const audios = [
             title: "This Journey Ahead",
         },
     ],
-    [
+    "popRock": [
         {
             src: TheGoddess,
             title: "The Goddess",
@@ -81,7 +81,7 @@ export const audios = [
             title: "Chase MG",
         },
     ],
-    [
+    "traditional": [
         {
             src: ThisJourneyAhead,
             title: "This Journey Ahead",
@@ -95,4 +95,4 @@ export const audios = [
             title: "The Goddess",
         },
     ],
-]
+}

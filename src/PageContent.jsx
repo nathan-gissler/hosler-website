@@ -2,11 +2,10 @@ import HomeBanner from "./HomeBanner"
 import OurCommitments from "./OurCommitments"
 import CommitmentsItem from "./CommitmentsItem"
 import PortfolioCarousel from "./PortfolioCarousel"
-import { audios } from "./assets/audios"
 import ContactForm from "./ContactForm"
 
 export default function PageContent({ content }) {
-    const portfolioItems = audios
+    const portfolioItems = ["cinematic", "urban", "popRock", "traditional"]
     
     return (
         <div className="page-content">

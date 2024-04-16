@@ -15,6 +15,14 @@
     --primary-2: hsl(from var(--primary-1) h s calc(l + .05));
     --primary-1-transparent: hsl(from var(--primary-1) h s l / 25%);
 
+    /* this is the default value of local primary color */
+    --local-primary-1: var(--primary-1);
+
+    --cinematic-color: hsl(355, 60%, 25%);
+    --urban-color: hsl(30, 60%, 25%);
+    --pop-rock-color: hsl(342, 60%, 25%);
+    --traditional-color: hsl(355, 60%, 25%);
+
     --box-shadow-color: hsl(0, 0%, 0%, 25%);
 
     /* Dimensions */
@@ -276,8 +284,29 @@ h2 {
 
 /* Portfolio */
 
+#cinematic {
+    background-image: url('./assets/images/cello-artwork.png');
+    --local-primary-1: var(--cinematic-color);
+}
+
+#urban {
+    background-image: url('./assets/images/mic-artwork.png');
+    --local-primary-1: var(--urban-color);
+}
+
+#pop-rock {
+    background-image: url('./assets/images/guitar-artwork.png');
+    --local-primary-1: var(--pop-rock-color);
+}
+
+#traditional {
+    background-image: url('./assets/images/cello-artwork.png');
+    --local-primary-1: var(--traditional-color);
+}
+
 .portfolio {
-    background-image: url('./assets/images/fond-guitare-piano.png');
+    --local-primary-2: hsl(from var(--local-primary-1) h s calc(l + .05));
+    --local-primary-1-transparent: hsl(from var(--local-primary-1) h s l / 25%);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -291,7 +320,7 @@ h2 {
     flex-direction: column;
 }
 
-.porfolio-card-title {
+.portfolio-card-title {
     width: fit-content;
     margin-top: 100px;
     margin-bottom: 30px;
@@ -300,7 +329,7 @@ h2 {
     padding: 20px;
     font-size: var(--font-size-title);
     font-weight: 100;
-    background-color: var(--primary-1);
+    background-color: var(--local-primary-1);
     border-radius: 2px;
     box-shadow: 0 3px 6px 0 var(--box-shadow-color);
     z-index: 20;
@@ -361,7 +390,7 @@ h2 {
 }
 
 .audio-track.is-selected {
-    background-color: var(--primary-1-transparent);
+    background-color: var(--local-primary-1-transparent);
 }
 
 .track-play-button {
@@ -410,7 +439,7 @@ h2 {
 .audio-progress {
     height: 100%;
     border-radius: 1px;
-    background-color: var(--primary-2);
+    background-color: var(--local-primary-2);
     transition: width 200ms;
 }
 

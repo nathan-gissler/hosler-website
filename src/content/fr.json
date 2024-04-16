@@ -26,24 +26,24 @@
                 "description": "Nous avons à coeur de travailler dans tous les styles musicaux, à tous les niveaux, avec la même rigueur"
             }
         ],
-        "portfolioCarousel": [
-            {
+        "portfolioCarousel": {
+            "cinematic": {
                 "musicStyleName": "CINÉMATIQUE",
                 "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
             },
-            {
+            "urban": {
                 "musicStyleName": "URBAIN",
                 "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
             },
-            {
+            "popRock": {
                 "musicStyleName": "POP ROCK",
                 "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
             },
-            {
+            "traditional": {
                 "musicStyleName": "TRADITIONNEL",
                 "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
             }
-        ],
+        },
         "aboutUsTitle": "A PROPOS DE NOUS",
         "contactTitle": "CONTACT",
         "contactForm": {

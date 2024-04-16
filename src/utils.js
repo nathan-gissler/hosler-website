@@ -34,3 +34,7 @@ export function secondsToMinutesSeconds(seconds) {
   
     return `${formattedMinutes}:${formattedSeconds}`;
 }
+
+export function camelCaseToKebabCase(string) {
+    return string.replace(/[A-Z]/, letter => `-${letter.toLowerCase()}`)
+}
