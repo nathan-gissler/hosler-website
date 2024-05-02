@@ -23,7 +23,9 @@
     --pop-rock-color: hsl(342, 60%, 25%);
     --traditional-color: hsl(355, 60%, 25%);
 
-    --box-shadow-color: hsl(0, 0%, 0%, 25%);
+    --box-shadow-color: hsl(0, 0%, 0%, 55%);
+
+    --progress-bar-bg: var(--grey-3);
 
     /* Dimensions */
     --header-full-height: 120px;
@@ -320,31 +322,24 @@ h2 {
     flex-direction: column;
 }
 
-.portfolio-card-title {
+.portfolio-card-title-description {
+    margin: 150px;
+    background-color: var(--grey-1-transparent-1);
+    border-radius: 2px;
+    box-shadow: 3px 6px 6px 0 var(--box-shadow-color);
+}
+
+.portfolio-title {
     width: fit-content;
-    margin-top: 100px;
-    margin-bottom: 30px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 10px;
     padding: 20px;
     font-size: var(--font-size-title);
     font-weight: 100;
-    background-color: var(--local-primary-1);
-    border-radius: 2px;
-    box-shadow: 0 3px 6px 0 var(--box-shadow-color);
-    z-index: 20;
 }
 
-.portfolio-card-description {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 100px;
-    margin-right: 230px;
+.portfolio-description {
+    margin: 10px;
     padding: 30px;
-    transform: translate(25px, -80px);
-    background-color: var(--grey-1-transparent-1);
-    border-radius: 2px;
-    box-shadow: 0 3px 6px 0 var(--box-shadow-color);
 }
 
 /* Audio player */
@@ -433,7 +428,7 @@ h2 {
     width: 100%;
     height: 100%;
     border-radius: 1px;
-    background-color: var(--grey-3);
+    background-color: var(--progress-bar-bg);
 }
 
 .audio-progress {
