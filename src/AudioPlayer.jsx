@@ -7,7 +7,7 @@ import PauseIcon from "./assets/icons/pause-icon.svg"
 import PreviousIcon from "./assets/icons/previous-icon.svg"
 import NextIcon from "./assets/icons/next-icon.svg"
 
-export default function AudioPlayer({ musicStyleId, index }) {
+export default function AudioPlayer({ musicStyleId, index, isCurrentPlayer }) {
     const trackList = audios[musicStyleId]
     const [currentTime, setCurrentTime] = useState(0)
     const [duration, setDuration] = useState(0)
@@ -87,6 +87,13 @@ export default function AudioPlayer({ musicStyleId, index }) {
             progressBar.removeEventListener('click', onClick)
         }
     }, [track])
+
+    // Pause track when changing carousel card
+    useEffect(() => {
+        if (!isCurrentPlayer && isTrackPlaying) {
+            handlePlayButton()
+        }
+    }, [isCurrentPlayer])
 
     // Update current track
     function changeTrack(newIndex) {

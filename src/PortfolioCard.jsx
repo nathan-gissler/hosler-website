@@ -1,7 +1,7 @@
 import { camelCaseToKebabCase } from "./utils"
 import AudioPlayer from "./AudioPlayer"
 
-export default function PortfolioCard({ musicStyleId, index, content }) {
+export default function PortfolioCard({ musicStyleId, index, isCurrentCard, content }) {
     return (
         <div id={camelCaseToKebabCase(musicStyleId)} className="portfolio">
             <div className="half-portfolio">
@@ -11,7 +11,7 @@ export default function PortfolioCard({ musicStyleId, index, content }) {
                 </div>
             </div>
             <div className="half-portfolio">
-                <AudioPlayer musicStyleId={musicStyleId} index={index} />
+                <AudioPlayer musicStyleId={musicStyleId} index={index} isCurrentPlayer={isCurrentCard} />
             </div>
         </div>
     )

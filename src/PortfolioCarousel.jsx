@@ -7,9 +7,11 @@ import DotFilled from "./assets/icons/dot-filled.svg"
 import DotEmpty from "./assets/icons/dot-empty.svg"
 
 export default function PortfolioCarousel({ items, content }) {
+    const [currentIndex, setCurrentIndex] = useState(0)
+
     let cards = items.map((musicStyleId, index) => (
         <div className="carousel-card" key={index}>
-            <PortfolioCard musicStyleId={musicStyleId} index={index} content={content.portfolioCards[musicStyleId]} />
+            <PortfolioCard musicStyleId={musicStyleId} index={index} isCurrentCard={currentIndex==index} content={content.portfolioCards[musicStyleId]} />
         </div>
     ))
     cards.push(
@@ -17,8 +19,6 @@ export default function PortfolioCarousel({ items, content }) {
             <PortfolioLastCard content={content.portfolioLastCard} />
         </div>
     )
-
-    const [currentIndex, setCurrentIndex] = useState(0)
 
     const handleNextClick = () => {
         setCurrentIndex((currentIndex + 1) % cards.length)
