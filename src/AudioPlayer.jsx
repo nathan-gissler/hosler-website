@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { audios } from "./assets/audios"
+import { secondsToMinutesSeconds } from "./utils.js"
 import AudioTrack from "./AudioTrack"
 import PlayIcon from "./assets/icons/play-icon.svg"
 import PauseIcon from "./assets/icons/pause-icon.svg"
@@ -9,6 +10,7 @@ import NextIcon from "./assets/icons/next-icon.svg"
 export default function AudioPlayer({ musicStyleId, index }) {
     const trackList = audios[musicStyleId]
     const [currentTime, setCurrentTime] = useState(0)
+    const [duration, setDuration] = useState(0)
     const [intervalID, setIntervalID] = useState()
     const [isTrackSelected, setIsTrackSelected] = useState(false)
     const [isTrackPlaying, setIsTrackPlaying] = useState(false)
@@ -46,6 +48,15 @@ export default function AudioPlayer({ musicStyleId, index }) {
             track.oncanplay = function() {
                 track.play()
                 setIsTrackPlaying(true)
+            }
+        }
+    }, [track])
+    
+    // Setting track duration when track is loaded
+    useEffect(() => {
+        if (track) {
+            track.onloadedmetadata = function() {
+                setDuration(track.duration)
             }
         }
     }, [track])
@@ -140,6 +151,9 @@ export default function AudioPlayer({ musicStyleId, index }) {
                     </div>
                 </div>
                 <div className="audio-control-buttons">
+                    <div className="player-time-duration audio-control-time-duration">
+                        {secondsToMinutesSeconds(currentTime)}
+                    </div>
                     <div className="audio-control-button previous-button highlight-on-hover" onClick={handlePrevButton}>
                         <img className="previous-next-button-logo" src={PreviousIcon} alt="" />
                     </div>
@@ -148,6 +162,9 @@ export default function AudioPlayer({ musicStyleId, index }) {
                     </div>
                     <div className="audio-control-button next-button highlight-on-hover" onClick={handleNextButton}>
                         <img className="previous-next-button-logo" src={NextIcon} alt="" />
+                    </div>
+                    <div className="player-time-duration audio-control-time-duration">
+                        {secondsToMinutesSeconds(duration)}
                     </div>
                 </div>
             </div>

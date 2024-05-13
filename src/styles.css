@@ -398,7 +398,7 @@ h2 {
     flex: 1 0 auto;
 }
 
-.track-duration {
+.player-time-duration {
     width: 55px;
     margin: 5px;
     text-align: center;
@@ -410,6 +410,7 @@ h2 {
 .audio-control {
     width: 100%;
     height: 60px;
+    overflow: hidden;
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
@@ -439,9 +440,12 @@ h2 {
 }
 
 .audio-control-buttons {
+    width: 85%;
+    align-self: center;
     flex: 1 0;
     padding-bottom: 5px;
     display: flex;
+    align-items: center;
 }
 
 .audio-control-button {
@@ -479,6 +483,10 @@ h2 {
 
 .play-button-logo {
     margin: auto;
+}
+
+.audio-control-time-duration {
+    padding-bottom: 10px;
 }
 
 /* About us */
