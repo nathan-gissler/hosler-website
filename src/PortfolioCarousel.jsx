@@ -1,5 +1,6 @@
 import { useState } from "react"
 import PortfolioCard from "./PortfolioCard"
+import PortfolioLastCard from "./PortfolioLastCard"
 import ArrowLeft from "./assets/icons/arrow-left.svg"
 import ArrowRight from "./assets/icons/arrow-right.svg"
 import DotFilled from "./assets/icons/dot-filled.svg"
@@ -8,27 +9,32 @@ import DotEmpty from "./assets/icons/dot-empty.svg"
 export default function PortfolioCarousel({ items, content }) {
     let cards = items.map((musicStyleId, index) => (
         <div className="carousel-card" key={index}>
-            <PortfolioCard musicStyleId={musicStyleId} index={index} content={content[musicStyleId]} />
+            <PortfolioCard musicStyleId={musicStyleId} index={index} content={content.portfolioCards[musicStyleId]} />
         </div>
     ))
+    cards.push(
+        <div className="carousel-card" key={items.length}>
+            <PortfolioLastCard content={content.portfolioLastCard} />
+        </div>
+    )
 
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const handleNextClick = () => {
-        setCurrentIndex((currentIndex + 1) % items.length)
+        setCurrentIndex((currentIndex + 1) % cards.length)
     }
 
     const handlePrevClick = () => {
-        setCurrentIndex((currentIndex - 1 + items.length) % items.length)
+        setCurrentIndex((currentIndex - 1 + cards.length) % cards.length)
     }
 
-    let dots = items.map((t, index) => (
+    let dots = cards.map((t, index) => (
         <img src={index === currentIndex ? DotFilled : DotEmpty} alt="" key={index} />
     ))
 
     const carouselStyle = {
-        width: `${items.length * 100}%`,
-        transform: `translateX(-${currentIndex / items.length * 100}%)`,
+        width: `${cards.length * 100}%`,
+        transform: `translateX(-${currentIndex / cards.length * 100}%)`,
     }
 
     return (
