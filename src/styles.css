@@ -273,6 +273,7 @@ h2 {
 .carousel-dots > img {
     width: 7px;
     margin: 5px;
+    cursor: pointer;
 }
 
 .carousel {

@@ -29,7 +29,7 @@ export default function PortfolioCarousel({ items, content }) {
     }
 
     let dots = cards.map((t, index) => (
-        <img src={index === currentIndex ? DotFilled : DotEmpty} alt="" key={index} />
+        <img className="highlight-on-hover" src={index === currentIndex ? DotFilled : DotEmpty} alt="" key={index} onClick={() => {setCurrentIndex(index)}} />
     ))
 
     const carouselStyle = {
