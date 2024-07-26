@@ -1,17 +1,18 @@
 {
     "header": {
-        "navItemHome": "ACCUEIL",
-        "navItemCommitments": "NOS ENGAGEMENTS",
-        "navItemPortfolio": "PORTFOLIO",
-        "navItemAboutUs": "A PROPOS DE NOUS",
-        "navItemContact": "CONTACT"
+        "navItemHome": "Accueil",
+        "navItemCommitments": "Nos engagements",
+        "navItemPortfolio": "Portfolio",
+        "navItemAboutUs": "A propos de nous",
+        "navItemContact": "Contact"
     },
     "pageContent": {
         "homeBanner": {
-            "homeBannerTitle": "CRÉATION MUSICALE D'EXCEPTION",
+            "homeBannerTitle": "Création musicale d'exception",
             "homeBannerSubtitle": "HOSLER vous accompagne dans votre aventure musicale avec les plus hauts standards",
             "homeBannerButton": "Écouter"
         },
+        "ourCommitmentsTitle": "Nos engagements...",
         "commitments": [
             {
                 "title": "Imposez votre vision, exigez la meilleure qualité",
@@ -26,22 +27,23 @@
                 "description": "Nous avons à coeur de travailler dans tous les styles musicaux, à tous les niveaux, avec la même rigueur"
             }
         ],
+        "portfolioTitle": "Composition dans tous les styles",
         "portfolioCarousel": {
             "portfolioCards": {
                 "cinematic": {
-                    "musicStyleName": "CINÉMATIQUE",
+                    "musicStyleName": "Cinématique",
                     "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
                 },
                 "urban": {
-                    "musicStyleName": "URBAIN",
+                    "musicStyleName": "Urbain",
                     "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
                 },
                 "popRock": {
-                    "musicStyleName": "POP ROCK",
+                    "musicStyleName": "Pop rock",
                     "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
                 },
                 "traditional": {
-                    "musicStyleName": "TRADITIONNEL",
+                    "musicStyleName": "Traditionnel",
                     "musicStyleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam. Bibendum ut tristique et egestas."
                 }
             },
@@ -49,8 +51,8 @@
                 "title": "Et ce n'est pas tout !"
             }
         },
-        "aboutUsTitle": "A PROPOS DE NOUS",
-        "contactTitle": "CONTACT",
+        "aboutUsTitle": "A propos de nous",
+        "contactTitle": "Contact",
         "contactForm": {
             "nameInput": "Nom",
             "emailInput": "Email *",

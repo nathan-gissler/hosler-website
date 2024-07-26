@@ -1,5 +1,5 @@
-export default function OurCommitments(props) {
+export default function OurCommitments({ children }) {
     return (
-        <div id="our-commitments-section" className="our-commitments">{ props.children }</div>
+        <div className="our-commitments">{ children }</div>
     )
 }

@@ -6,7 +6,9 @@ export default function CommitmentsItem({ invertedLayout, content }) {
         </div>
     )
     let itemImage = (
-        <div className={`commitment-image ${invertedLayout ? "image-gradient-right-left" : "image-gradient-left-right"}`} />
+        <div className="commitment-image-background">
+            <div className={`commitment-image ${invertedLayout ? "image-gradient-right-left" : "image-gradient-left-right"}`} />
+        </div>
     )
 
     return (

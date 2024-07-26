@@ -38,7 +38,7 @@ export default function PortfolioCarousel({ items, content }) {
     }
 
     return (
-        <div id="portfolio-section" className="carousel-wrapper">
+        <div className="carousel-wrapper">
             <div onClick={handlePrevClick} className="carousel-button carousel-prev highlight-on-hover">
                 <img src={ArrowLeft} alt="" />
             </div>

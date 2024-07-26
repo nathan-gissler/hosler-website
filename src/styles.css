@@ -4,8 +4,9 @@
 
     --black: hsl(0, 0%, 0%);
     --grey-1: hsl(0, 0%, 12%);
-    --grey-2: hsl(0, 0%, 16%);
-    --grey-3: hsl(0, 0%, 85%);
+    --grey-2: hsl(0, 0%, 18%);
+    --grey-2-bis: hsl(0, 0%, 24%);
+    --grey-3: hsl(0, 0%, 100%);
     --white: hsl(0, 0%, 100%);
 
     --grey-1-transparent-1: hsl(from var(--grey-1) h s l / 63%);
@@ -41,9 +42,9 @@
     --font-size-title: 36px;
     --font-size-title-large: 48px;
 
-    background-color: var(--black);
+    background-color: var(--grey-2);
     color: var(--grey-3);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Hind', 'Inter', sans-serif;
     letter-spacing: 0.2em;
     font-weight: 300;
     scroll-behavior: smooth;
@@ -85,6 +86,7 @@ body {
 
 #header {
     background-color: var(--grey-1);
+    border-bottom: solid 1px var(--grey-2-bis);
     width: 100%;
     transition: background-color 500ms;
     position: fixed;
@@ -104,6 +106,8 @@ body {
 
 .header-navbar {
     flex: auto;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', 'Inter', sans-serif;
     font-size: var(--font-size-regular);
     display: flex;
     align-items: end;
@@ -141,18 +145,24 @@ body {
     margin-top: var(--header-full-height);
 }
 
+.title-container {
+    display: flex;
+    height: 250px;
+    width: 100%;
+}
+
 h2 {
-    margin-left: 80px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: auto;
+    font-family: 'Hind', 'Inter', sans-serif;
     font-weight: 100;
     font-size: var(--font-size-title);
+    text-align: center;
 }
 
 /* Home banner */
 
 .home-banner {
-    background-image: url('./assets/images/fond-guitare-piano.png');
+    background-image: url('./assets/images/mic-artwork.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -176,6 +186,8 @@ h2 {
 }
 
 .home-banner-title {
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', 'Inter', sans-serif;
     font-size: var(--font-size-title-large);
     font-weight: 100;
 }
@@ -185,7 +197,7 @@ h2 {
 }
 
 .home-banner-button {
-    background-color: var(--black);
+    background-color: var(--grey-1);
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
@@ -199,8 +211,13 @@ h2 {
 /* Commitments */
 
 .commitment {
+    position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .commitment-text {
@@ -208,16 +225,15 @@ h2 {
     width: 400px;
     margin: 50px;
     height: fit-content;
+    text-align: center;
 }
 
 .align-left {
     left: 0px;
-    text-align: center;
 }
 
 .align-right {
     right: 0px;
-    text-align: center;
 }
 
 .commitment-title {
@@ -225,12 +241,21 @@ h2 {
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    font-family: 'Josefin Sans', 'Inter', sans-serif;
     font-size: var(--font-size-title-small);
+    font-weight: 500;
 }
 
 .commitment-description {
     margin: 10px;
+    letter-spacing: 0.1em;
     font-size: var(--font-size-regular);
+}
+
+.commitment-image-background {
+    background-color: var(--black);
+    width: 100%;
+    height: 100%;
 }
 
 .commitment-image {
@@ -238,7 +263,7 @@ h2 {
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 500px;
+    height: 100%;
 }
 
 .image-gradient-left-right {
@@ -303,23 +328,35 @@ h2 {
 /* Portfolio */
 
 #cinematic {
-    background-image: url('./assets/images/cello-artwork.png');
     --local-primary-1: var(--cinematic-color);
 }
 
+#cinematic > .portfolio-background {
+    background-image: url('./assets/images/cello-artwork-moins-sat.png');
+}
+
 #urban {
-    background-image: url('./assets/images/mic-artwork.png');
     --local-primary-1: var(--urban-color);
 }
 
+#urban > .portfolio-background {
+    background-image: url('./assets/images/mic-artwork.png');
+}
+
 #pop-rock {
-    background-image: url('./assets/images/guitar-artwork.png');
     --local-primary-1: var(--pop-rock-color);
 }
 
+#pop-rock > .portfolio-background {
+    background-image: url('./assets/images/guitar-artwork.png');
+}
+
 #traditional {
-    background-image: url('./assets/images/cello-artwork.png');
     --local-primary-1: var(--traditional-color);
+}
+
+#traditional > .portfolio-background {
+    background-image: url('./assets/images/cello-artwork.png');
 }
 
 .portfolio {
@@ -328,8 +365,25 @@ h2 {
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: calc(100vh - var(--header-reduced-height));
+    /*height: calc(100vh - var(--header-reduced-height));*/
+    height: 600px;
+    position: relative;
+}
+
+.portfolio-background {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-content {
     display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .half-portfolio {
@@ -339,33 +393,31 @@ h2 {
 }
 
 .portfolio-card-title-description {
-    margin: 150px;
-    background-color: var(--grey-1-transparent-1);
+    margin: auto;
+    padding: 125px;
+    /*background-color: var(--grey-1-transparent-1);
     border-radius: 2px;
-    box-shadow: 3px 6px 6px 0 var(--box-shadow-color);
+    box-shadow: 3px 6px 6px 0 var(--box-shadow-color);*/
+    text-align: center;
 }
 
 .portfolio-title {
-    width: fit-content;
     margin: 10px;
-    padding: 20px;
+    font-family: 'Oswald', 'Inter', sans-serif;
     font-size: var(--font-size-title);
-    font-weight: 100;
+    font-weight: 500;
 }
 
 .portfolio-description {
     margin: 10px;
-    padding: 30px;
+    letter-spacing: 0.1em;
+    font-size: var(--font-size-regular);
 }
 
 /* Audio player */
 
 .audio-player {
-    background-color: var(--grey-1-transparent-1);
-    border-radius: 10px;
-    box-shadow: 0 3px 6px 0 var(--box-shadow-color);
     width: 25vw;
-    height: 25vw;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -382,11 +434,13 @@ h2 {
 }
 
 .track-list::-webkit-scrollbar {
+    display: none;
     width: 1px;
     background-color: var(--transparent);
 }
 
 .track-list::-webkit-scrollbar-thumb {
+    display: none;
 	border-radius: 5px;
     background-color: var(--grey-3);
 }
@@ -397,11 +451,14 @@ h2 {
     height: 40px;
     letter-spacing: 0.1em;
     font-size: var(--font-size-regular);
+    background-color: var(--grey-2-bis);
     border-radius: 4px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .audio-track.is-selected {
-    background-color: var(--local-primary-1-transparent);
+    background-color: var(--local-primary-1);
 }
 
 .track-play-button {
@@ -424,15 +481,17 @@ h2 {
 }
 
 .audio-control {
+    display: none;
     width: 100%;
     height: 60px;
     overflow: hidden;
     flex: 0 0 auto;
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
 }
 
 .audio-progress-bar-container {
+    display: none;
     width: 78%;
     height: 2px;
     padding-top: 5px;
@@ -456,11 +515,12 @@ h2 {
 }
 
 .audio-control-buttons {
+    display: none;
     width: 85%;
     align-self: center;
     flex: 1 0;
     padding-bottom: 5px;
-    display: flex;
+    /*display: flex;*/
     align-items: center;
 }
 
@@ -518,7 +578,7 @@ h2 {
 }
 
 .input {
-    background-color: var(--grey-2);
+    background-color: var(--grey-2-bis);
     margin: 15px;
     padding: 10px;
     border-radius: 3px;
@@ -549,11 +609,11 @@ h2 {
 }
 
 .contact-form-send-button {
-    background-color: var(--black);
+    background-color: var(--grey-2);
     margin: 15px;
     padding: 10px;
     border-radius: 4px;
-    border: solid 1px var(--grey-2);
+    border: solid 1px var(--grey-2-bis);
     cursor: pointer;
     transition: background-color 300ms, border 300ms;
 }
@@ -566,7 +626,7 @@ h2 {
 
 #footer {
     background-color: var(--grey-1);
-    border-top: solid 1px var(--grey-2);
+    border-top: solid 1px var(--grey-2-bis);
     width: 100%;
     height: var(--footer-height);
     font-size: var(--font-size-small);
