@@ -16,13 +16,26 @@
     --primary-2: hsl(from var(--primary-1) h s calc(l + .05));
     --primary-1-transparent: hsl(from var(--primary-1) h s l / 25%);
 
+    --green-1: #020304;
+    --green-2: #0c2718;
+    --green-3: #547943;
+    --green-4: #a0bc83;
+    --brown-1: #2b241e;
+    --brown-2: #553e2e;
+    --brown-3: #856749;
+    --brown-4: #baaa8c;
+
     /* this is the default value of local primary color */
     --local-primary-1: var(--primary-1);
 
-    --cinematic-color: hsl(355, 60%, 25%);
-    --urban-color: hsl(30, 60%, 25%);
-    --pop-rock-color: hsl(342, 60%, 25%);
-    --traditional-color: hsl(355, 60%, 25%);
+    --cinematic-color-1: hsl(355, 60%, 25%);
+    --cinematic-color-2: hsl(355, 60%, 40%, 20%);
+    --urban-color-1: hsl(30, 60%, 25%);
+    --urban-color-2: hsl(30, 60%, 40%, 20%);
+    --pop-rock-color-1: hsl(342, 60%, 25%);
+    --pop-rock-color-2: hsl(342, 60%, 40%, 20%);
+    --traditional-color-1: hsl(355, 60%, 25%);
+    --traditional-color-2: hsl(355, 60%, 40%, 20%);
 
     --box-shadow-color: hsl(0, 0%, 0%, 55%);
 
@@ -126,7 +139,8 @@ body {
 
 .header-navbar-item.is-selected {
     font-weight: 500;
-    border-bottom: solid 1px var(--grey-3);
+    color: var(--brown-4);
+    border-bottom: solid 1px var(--brown-4);
 }
 
 .language-icon {
@@ -197,15 +211,18 @@ h2 {
 }
 
 .home-banner-button {
-    background-color: var(--grey-1);
+    background-color: var(--white);
+    color: var(--grey-1);
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 2px;
+    font-size: var(--font-size-regular);
     cursor: pointer;
-    transition: background-color 300ms;
+    transition: background-color 300ms, color 300ms;
 }
 
 .home-banner-button:hover {
-    background-color: var(--primary-2);
+    background-color: var(--brown-3);
+    color: var(--grey-3);
 }
 
 /* Commitments */
@@ -328,7 +345,8 @@ h2 {
 /* Portfolio */
 
 #cinematic {
-    --local-primary-1: var(--cinematic-color);
+    --local-primary-1: var(--cinematic-color-1);
+    --local-primary-2: var(--cinematic-color-2);
 }
 
 #cinematic > .portfolio-background {
@@ -336,7 +354,8 @@ h2 {
 }
 
 #urban {
-    --local-primary-1: var(--urban-color);
+    --local-primary-1: var(--urban-color-1);
+    --local-primary-2: var(--urban-color-2);
 }
 
 #urban > .portfolio-background {
@@ -344,7 +363,8 @@ h2 {
 }
 
 #pop-rock {
-    --local-primary-1: var(--pop-rock-color);
+    --local-primary-1: var(--pop-rock-color-1);
+    --local-primary-2: var(--pop-rock-color-2);
 }
 
 #pop-rock > .portfolio-background {
@@ -352,7 +372,8 @@ h2 {
 }
 
 #traditional {
-    --local-primary-1: var(--traditional-color);
+    --local-primary-1: var(--traditional-color-1);
+    --local-primary-2: var(--traditional-color-2);
 }
 
 #traditional > .portfolio-background {
@@ -360,7 +381,6 @@ h2 {
 }
 
 .portfolio {
-    --local-primary-2: hsl(from var(--local-primary-1) h s calc(l + .05));
     --local-primary-1-transparent: hsl(from var(--local-primary-1) h s l / 25%);
     background-size: cover;
     background-repeat: no-repeat;
@@ -386,8 +406,17 @@ h2 {
     left: 0;
 }
 
-.half-portfolio {
+.first-half-portfolio {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.last-half-portfolio {
+    --width: 35%;
+    width: var(--width);
+    margin-left: calc(50% - var(--width));
+    background-color: var(--grey-2-bis);
     display: flex;
     flex-direction: column;
 }
@@ -445,20 +474,40 @@ h2 {
     background-color: var(--grey-3);
 }
 
-.audio-track {
-    display: flex;
-    align-items: center;
+.audio-track-container {
+    --border-radius: 3px;
+    position: relative;
     height: 40px;
-    letter-spacing: 0.1em;
-    font-size: var(--font-size-regular);
-    background-color: var(--grey-2-bis);
-    border-radius: 4px;
     margin-top: 30px;
     margin-bottom: 30px;
+    background-color: var(--grey-2);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.audio-track-container:hover {
+    background-color: var(--local-primary-1);
+}
+
+.audio-track-progress {
+    height: 100%;
+    background-color: var(--local-primary-2);
+    border-radius: var(--border-radius);
+}
+
+.audio-track {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    letter-spacing: 0.1em;
+    font-size: var(--font-size-regular);
+    border-radius: var(--border-radius);
 }
 
 .audio-track.is-selected {
-    background-color: var(--local-primary-1);
 }
 
 .track-play-button {
@@ -611,14 +660,17 @@ h2 {
 .contact-form-send-button {
     background-color: var(--grey-2);
     margin: 15px;
-    padding: 10px;
-    border-radius: 4px;
+    padding: 7px;
+    width: 80px;
+    border-radius: 2px;
     border: solid 1px var(--grey-2-bis);
+    font-size: var(--font-size-regular);
+    text-align: center;
     cursor: pointer;
     transition: background-color 300ms, border 300ms;
 }
 .contact-form-send-button:hover {
-    background-color: var(--primary-2);
+    background-color: var(--brown-3);
     border: solid 1px var(--transparent);
 }
 

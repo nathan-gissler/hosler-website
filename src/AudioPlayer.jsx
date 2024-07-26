@@ -22,7 +22,8 @@ export default function AudioPlayer({ musicStyleId, index, isCurrentPlayer }) {
         <div key={index} onClick={() => {handleClickOnTrack(index)}}>
             <AudioTrack audioTrack={t}
             isSelected={isTrackSelected && currentTrackIndex == index}
-            isPlaying={isTrackPlaying && currentTrackIndex == index} />
+            isPlaying={isTrackPlaying && currentTrackIndex == index}
+            currentTime={currentTime} />
         </div>
     ))
 
