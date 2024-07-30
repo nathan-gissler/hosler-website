@@ -11,29 +11,19 @@ export default function PageContent({ content }) {
     return (
         <div className="page-content">
             <HomeBanner content={content.homeBanner} />
-            <div id="our-commitments-section" className="title-container">
-                <h2>{content.ourCommitmentsTitle}</h2>
-            </div>
+            <div id="our-commitments-section"></div>
             <OurCommitments>
                 <CommitmentsItem invertedLayout={false} content={content.commitments[0]} />
                 <CommitmentsItem invertedLayout={true} content={content.commitments[1]} />
                 <CommitmentsItem invertedLayout={false} content={content.commitments[2]} />
             </OurCommitments>
-            <div id="portfolio-section" className="title-container">
-                <h2>{content.portfolioTitle}</h2>
-            </div>
             <PortfolioCarousel items={portfolioItems} content={content.portfolioCarousel} />
-            <div id="about-us-section" className="title-container">
-                <h2>{content.ourCommitmentsTitle}</h2>
-            </div>
+            <div id="about-us-section"></div>
             <OurCommitments>
                 <CommitmentsItem invertedLayout={false} content={content.commitments[0]} />
                 <CommitmentsItem invertedLayout={true} content={content.commitments[1]} />
                 <CommitmentsItem invertedLayout={false} content={content.commitments[2]} />
             </OurCommitments>
-            <div className="title-container">
-                <h2 id="contact-section">{content.contactTitle}</h2>
-            </div>
             <ContactForm content={content.contactForm} />
         </div>
     )

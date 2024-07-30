@@ -61,6 +61,7 @@
     letter-spacing: 0.2em;
     font-weight: 300;
     scroll-behavior: smooth;
+
 }
 
 :root::-webkit-scrollbar {
@@ -159,11 +160,11 @@ body {
     margin-top: var(--header-full-height);
 }
 
-.title-container {
+/*.title-container {
     display: flex;
     height: 250px;
     width: 100%;
-}
+}*/
 
 h2 {
     margin: auto;
@@ -230,28 +231,31 @@ h2 {
 .commitment {
     position: relative;
     display: flex;
+    background-color: var(--grey-2-bis);
     align-items: center;
-    width: 100%;
-    height: 500px;
+    width: 80%;
+    height: 400px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 2px;
 }
 
 .commitment-text {
-    position: absolute;
     width: 400px;
-    margin: 50px;
+    margin: auto;
     height: fit-content;
     text-align: center;
 }
 
-.align-left {
+/*.align-left {
     left: 0px;
 }
 
 .align-right {
     right: 0px;
-}
+}*/
 
 .commitment-title {
     margin-top: 10px;
@@ -269,21 +273,21 @@ h2 {
     font-size: var(--font-size-regular);
 }
 
-.commitment-image-background {
+/*.commitment-image-background {
     background-color: var(--black);
     width: 100%;
     height: 100%;
-}
+}*/
 
 .commitment-image {
     background-image: url('./assets/images/fond-guitare-piano.png');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
+    width: 55%;
     height: 100%;
 }
 
-.image-gradient-left-right {
+/*.image-gradient-left-right {
     mask: url('./assets/css-masks/gradient-left-right.svg');
     mask-size: 100% auto;
 }
@@ -291,7 +295,7 @@ h2 {
 .image-gradient-right-left {
     mask: url('./assets/css-masks/gradient-right-left.svg');
     mask-size: 100% auto;
-}
+}*/
 
 /* Portfolio carousel */
 
